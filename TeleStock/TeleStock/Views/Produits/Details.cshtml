@@ -1,0 +1,78 @@
+﻿@model TeleStock.Models.Produit
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Produit</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.codeProduit)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.codeProduit)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.refProduit)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.refProduit)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.desProduit)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.desProduit)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.prixVenteHtProduit)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.prixVenteHtProduit)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.prixAchatHtProduit)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.prixAchatHtProduit)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.tvaProduit)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.tvaProduit)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.qteEnStockProduit)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.qteEnStockProduit)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.qteRuptureProduit)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.qteRuptureProduit)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.qteSurStockProduit)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.qteSurStockProduit)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.remarqueProduit)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.remarqueProduit)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.produitID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

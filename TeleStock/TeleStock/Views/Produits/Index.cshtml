@@ -1,0 +1,197 @@
+﻿@model IEnumerable<TeleStock.Models.Produit>
+@{
+    ViewBag.Title = "Produit List";
+}
+
+<h2>Produits</h2>
+
+<a class="btn btn-info" style="margin-bottom:10px" onclick="PopupForm('@Url.Action("AddOrEdit","Produits")')"><i class="fa fa-plus"></i> Add New</a>
+<table id="produitTable" class="table table-striped table-bordered display" style="width:100%">
+    <thead>
+        <tr>
+            <th></th>
+            <th>@Html.DisplayNameFor(model => model.refProduit)</th>
+            <th>@Html.DisplayNameFor(model => model.desProduit)</th>
+            <th>@Html.DisplayNameFor(model => model.prixVenteHtProduit)</th>
+            <th>@Html.DisplayNameFor(model => model.prixAchatHtProduit)</th>
+            <th>@Html.DisplayNameFor(model => model.tvaProduit)</th>
+            <th>@Html.DisplayNameFor(model => model.qteEnStockProduit)</th>
+            <th>@Html.DisplayNameFor(model => model.qteRuptureProduit)</th>
+            <th>@Html.DisplayNameFor(model => model.qteSurStockProduit)</th>
+            <th>@Html.DisplayNameFor(model => model.remarqueProduit)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th></th>
+            <th>@Html.DisplayNameFor(model => model.refProduit)</th>
+            <th>@Html.DisplayNameFor(model => model.desProduit)</th>
+            <th>@Html.DisplayNameFor(model => model.prixVenteHtProduit)</th>
+            <th>@Html.DisplayNameFor(model => model.prixAchatHtProduit)</th>
+            <th>@Html.DisplayNameFor(model => model.tvaProduit)</th>
+            <th>@Html.DisplayNameFor(model => model.qteEnStockProduit)</th>
+            <th>@Html.DisplayNameFor(model => model.qteRuptureProduit)</th>
+            <th>@Html.DisplayNameFor(model => model.qteSurStockProduit)</th>
+            <th>@Html.DisplayNameFor(model => model.remarqueProduit)</th>
+            <th hidden="hidden"></th>
+        </tr>
+    </tfoot>
+</table>
+
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css" rel="stylesheet" />
+
+@section scripts{
+    <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+
+    <script>
+        $(document).keyup(function (e) {
+            if (e.keyCode == 27) {
+                $('#pop').remove();
+            }
+        });
+
+        var Popup, dataTable;
+        $(document).ready(function () {
+
+            // Setup - add a text input to each footer cell
+            $('#produitTable tfoot th').each(function () {
+                var title = $(this).text();
+                $(this).html('<input type="text" required placeholder="Search ' + title + '" />');
+            });
+
+            // DataTable
+            dataTable = $('#produitTable').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'excel', 'pdf', 'print'
+                ],
+                "ajax": {
+                    "url": "/Produits/GetData",
+                    "type": "GET",
+                    "datatype": "json"
+                },
+                "columns": [
+                    { "data": "produitID" },
+                    { "data": "refProduit" },
+                    { "data": "desProduit" },
+                    { "data": "prixVenteHtProduit" },
+                    { "data": "prixAchatHtProduit" },
+                    { "data": "tvaProduit" },
+                    { "data": "qteEnStockProduit" },
+                    { "data": "qteRuptureProduit" },
+                    { "data": "qteSurStockProduit" },
+                    { "data": "remarqueProduit" },
+                    {
+                        "data": "produitID", "render": function (data) {
+                            return "<a class='btn btn-success btn-sm' onclick=PopupForm('@Url.Action("AddOrEdit","Produits")/" + data + "')><i class='fa fa-pencil'></i> Edit</a><a class='btn btn-danger btn-sm' style='margin-left:5px' onclick=Delete(" + data + ")><i class='fa fa-trash'></i> Delete</a>";
+                        },
+                        "orderable": false,
+                        "searchable": false,
+                        "width": "150px"
+                    }
+                ],
+                "language": {
+
+                    "emptyTable": "No data found, Please click on <b>Add New</b> Button"
+                },
+                "aoColumnDefs": [{ "bVisible": false, "aTargets": [0] }]
+            });
+
+            // Apply the search
+            dataTable.columns().every(function () {
+                var that = this;
+
+                $('input', this.footer()).on('keyup change', function () {
+                    if (that.search() !== this.value) {
+                        that
+                            .search(this.value)
+                            .draw();
+                    }
+                });
+            });
+
+        });
+
+        function PopupForm(url) {
+            //alert(url);
+            $('#pop').remove();
+            var formDiv = $('<div id="pop"/>');
+            $.get(url).done(function (response) {
+
+                formDiv.html(response);
+                Popup = formDiv.dialog({
+                    autoOpen: true,
+                    resizable: false,
+                    title: 'Fill Produit Details',
+                    height: 510,
+                    width: 800,
+                    close: function () {
+                        Popup.dialog('destroy').remove();
+                    }
+                });
+            });
+        }
+
+        function SubmitForm(form) {
+            $.validator.unobtrusive.parse(form);
+            if ($(form).valid()) {
+                $.ajax({
+                    type: "POST",
+                    url: form.action,
+                    data: $(form).serialize(),
+                    success: function (data) {
+                        if (data.success) {
+                            Popup.dialog('close');
+                            dataTable.ajax.reload();
+
+                            $.notify(data.message, {
+                                globalPosition: "top center",
+                                className: "success"
+                            });
+                        }
+                    }
+                });
+            }
+            return false;
+        }
+
+        function Delete(id) {
+            $('#pop').remove();
+            if (confirm('Are You Sure to Delete this Produit Record ?')) {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("Delete","Produits")/' + id,
+                    success: function (data) {
+                        if (data.success) {
+                            dataTable.ajax.reload();
+
+                            $.notify(data.message, {
+                                globalPosition: "top center",
+                                className: "warn"
+                            });
+                        }
+                    }
+                });
+            }
+        }
+    </script>
+}
+
+@*<script>
+    $('.currency').keypress(function (e) {
+
+        alert("currency3333");
+    });
+</script>*@

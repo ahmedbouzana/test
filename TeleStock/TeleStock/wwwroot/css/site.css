@@ -1,0 +1,76 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+/*@media screen and (max-width: 767px) {
+    /* Hide captions */
+    /*.carousel-caption {
+        display: none;
+    }
+}*/
+
+/*//////////////////////////////////////////////////////*/
+
+.field-validation-error {
+    color: #e80c4d;
+    font-weight: bold;
+}
+
+input.input-validation-error {
+    border: 1px solid #e80c4d;
+}
+
+tfoot input {
+    width: 100%;
+    padding: 3px;
+    box-sizing: border-box;
+}
+
+    tfoot input:valid {
+        width: 100%;
+        padding: 3px;
+        box-sizing: border-box;
+        border-color: blueviolet;
+    }
+
+input[type="search"] {
+    -webkit-appearance: searchfield;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: searchfield-cancel-button;
+}
+
+th {
+    text-align:center;
+}
+
+input.currency {
+    text-align: right;
+    padding-right: 15px;
+}

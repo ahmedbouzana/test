@@ -1,0 +1,124 @@
+﻿@model TeleStock.Models.Produit
+@{
+    Layout = null;
+}
+
+
+@using (Html.BeginForm("AddOrEdit", "Produits", FormMethod.Post, new { onsubmit = "return SubmitForm(this)" }))
+{
+    @Html.HiddenFor(model => model.produitID)
+
+    <div class="form-group">
+        <div class="row">
+            <div class="form-group col-md-6">
+                @Html.LabelFor(model => model.refProduit, new { @class = "control-label" })
+                @Html.EditorFor(model => model.refProduit, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                @Html.ValidationMessageFor(model => model.refProduit)
+            </div>
+            <div class="form-group col-md-6">
+                @Html.LabelFor(model => model.desProduit, new { @class = "control-label" })
+                @Html.EditorFor(model => model.desProduit, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                @Html.ValidationMessageFor(model => model.desProduit)
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="form-group col-md-5">
+                @Html.LabelFor(model => model.prixAchatHtProduit, new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.EditorFor(model => model.prixAchatHtProduit, new { htmlAttributes = new { @class = "form-control currency", autocomplete = "off" } })
+                    <span class="input-group-addon">DA</span>
+                </div>
+            </div>
+            <div class="form-group col-md-5">
+                @Html.LabelFor(model => model.prixVenteHtProduit, new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.EditorFor(model => model.prixVenteHtProduit, new { htmlAttributes = new { @class = "form-control currency", autocomplete = "off" } })
+                    <span class="input-group-addon">DA</span>
+                </div>
+            </div>
+            <div class="form-group col-md-2">
+                @Html.LabelFor(model => model.tvaProduit, new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.EditorFor(model => model.tvaProduit, new { htmlAttributes = new { @class = "form-control currency", autocomplete = "off" } })
+                    <span class="input-group-addon">%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="form-group col-md-4">
+                @Html.LabelFor(model => model.qteEnStockProduit, new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.EditorFor(model => model.qteEnStockProduit, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                    <span class="input-group-addon">Qté</span>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                @Html.LabelFor(model => model.qteRuptureProduit, new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.EditorFor(model => model.qteRuptureProduit, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                    <span class="input-group-addon">Qté</span>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                @Html.LabelFor(model => model.qteSurStockProduit, new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.EditorFor(model => model.qteSurStockProduit, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                    <span class="input-group-addon">Qté</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.remarqueProduit, new { @class = "control-label" })
+        @Html.EditorFor(model => model.remarqueProduit, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+        @Html.ValidationMessageFor(model => model.remarqueProduit)
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="form-group col-md-6">
+                <button type="submit" class="btn btn-block btn-info"><i class="fa fa-floppy-o"></i> Submit</button>
+            </div>
+            <div class="form-group col-md-4">
+                <button type="reset" class="btn btn-block btn-secondary"><i class="fa fa-repeat"></i> Reset</button>
+            </div>
+            <div class="form-group col-md-2">
+                <button type="button" class="btn btn-block btn-warning" onclick="$('#pop').remove();"><i class="fa fa-window-close-o"></i> Close</button>
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+       
+    var regex = /^\d{0,9}(\.\d{0,2})?$/;
+        $(".currency").on("keyup", function () {
+            var valid = regex.test(this.value),
+                val = this.value;
+            var pos = this.selectionStart - 1;
+
+            if (!valid) {
+                if (typeof this.lastValid != "undefined") {
+                    this.value = this.lastValid
+                    this.setSelectionRange(pos, pos);
+                } else {
+                    this.value = "";
+                }
+            } else {
+                this.lastValid = val;
+            }
+    });
+
+    $(".currency").bind("paste", function (e) {
+        // access the clipboard using the api
+        var pastedData = e.originalEvent.clipboardData.getData('text');
+        if (!regex.test(pastedData)) {
+            e.preventDefault();
+        }
+    });
+</script>

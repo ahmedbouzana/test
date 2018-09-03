@@ -1,0 +1,33 @@
+C:\Users\Hello\Desktop\TeleStock\TeleStock\bin\Debug\netcoreapp2.0\TeleStock.deps.json
+C:\Users\Hello\Desktop\TeleStock\TeleStock\bin\Debug\netcoreapp2.0\TeleStock.runtimeconfig.json
+C:\Users\Hello\Desktop\TeleStock\TeleStock\bin\Debug\netcoreapp2.0\TeleStock.runtimeconfig.dev.json
+C:\Users\Hello\Desktop\TeleStock\TeleStock\bin\Debug\netcoreapp2.0\TeleStock.dll
+C:\Users\Hello\Desktop\TeleStock\TeleStock\bin\Debug\netcoreapp2.0\TeleStock.pdb
+C:\Users\Hello\Desktop\TeleStock\TeleStock\obj\Debug\netcoreapp2.0\TeleStock.csprojResolveAssemblyReference.cache
+C:\Users\Hello\Desktop\TeleStock\TeleStock\obj\Debug\netcoreapp2.0\TeleStock.csproj.CoreCompileInputs.cache
+C:\Users\Hello\Desktop\TeleStock\TeleStock\obj\Debug\netcoreapp2.0\TeleStock.AssemblyInfoInputs.cache
+C:\Users\Hello\Desktop\TeleStock\TeleStock\obj\Debug\netcoreapp2.0\TeleStock.AssemblyInfo.cs
+C:\Users\Hello\Desktop\TeleStock\TeleStock\obj\Debug\netcoreapp2.0\TeleStock.dll
+C:\Users\Hello\Desktop\TeleStock\TeleStock\obj\Debug\netcoreapp2.0\TeleStock.pdb
+C:\Users\40-58\Desktop\New folder\TeleStock\TeleStock\bin\Debug\netcoreapp2.0\TeleStock.deps.json
+C:\Users\40-58\Desktop\New folder\TeleStock\TeleStock\bin\Debug\netcoreapp2.0\TeleStock.runtimeconfig.json
+C:\Users\40-58\Desktop\New folder\TeleStock\TeleStock\bin\Debug\netcoreapp2.0\TeleStock.runtimeconfig.dev.json
+C:\Users\40-58\Desktop\New folder\TeleStock\TeleStock\bin\Debug\netcoreapp2.0\TeleStock.dll
+C:\Users\40-58\Desktop\New folder\TeleStock\TeleStock\bin\Debug\netcoreapp2.0\TeleStock.pdb
+C:\Users\40-58\Desktop\New folder\TeleStock\TeleStock\obj\Debug\netcoreapp2.0\TeleStock.csprojResolveAssemblyReference.cache
+C:\Users\40-58\Desktop\New folder\TeleStock\TeleStock\obj\Debug\netcoreapp2.0\TeleStock.csproj.CoreCompileInputs.cache
+C:\Users\40-58\Desktop\New folder\TeleStock\TeleStock\obj\Debug\netcoreapp2.0\TeleStock.AssemblyInfoInputs.cache
+C:\Users\40-58\Desktop\New folder\TeleStock\TeleStock\obj\Debug\netcoreapp2.0\TeleStock.AssemblyInfo.cs
+C:\Users\40-58\Desktop\New folder\TeleStock\TeleStock\obj\Debug\netcoreapp2.0\TeleStock.dll
+C:\Users\40-58\Desktop\New folder\TeleStock\TeleStock\obj\Debug\netcoreapp2.0\TeleStock.pdb
+C:\Users\40-58\Desktop\TeleStock\TeleStock\bin\Debug\netcoreapp2.0\TeleStock.deps.json
+C:\Users\40-58\Desktop\TeleStock\TeleStock\bin\Debug\netcoreapp2.0\TeleStock.runtimeconfig.json
+C:\Users\40-58\Desktop\TeleStock\TeleStock\bin\Debug\netcoreapp2.0\TeleStock.runtimeconfig.dev.json
+C:\Users\40-58\Desktop\TeleStock\TeleStock\bin\Debug\netcoreapp2.0\TeleStock.dll
+C:\Users\40-58\Desktop\TeleStock\TeleStock\bin\Debug\netcoreapp2.0\TeleStock.pdb
+C:\Users\40-58\Desktop\TeleStock\TeleStock\obj\Debug\netcoreapp2.0\TeleStock.csprojResolveAssemblyReference.cache
+C:\Users\40-58\Desktop\TeleStock\TeleStock\obj\Debug\netcoreapp2.0\TeleStock.csproj.CoreCompileInputs.cache
+C:\Users\40-58\Desktop\TeleStock\TeleStock\obj\Debug\netcoreapp2.0\TeleStock.AssemblyInfoInputs.cache
+C:\Users\40-58\Desktop\TeleStock\TeleStock\obj\Debug\netcoreapp2.0\TeleStock.AssemblyInfo.cs
+C:\Users\40-58\Desktop\TeleStock\TeleStock\obj\Debug\netcoreapp2.0\TeleStock.dll
+C:\Users\40-58\Desktop\TeleStock\TeleStock\obj\Debug\netcoreapp2.0\TeleStock.pdb

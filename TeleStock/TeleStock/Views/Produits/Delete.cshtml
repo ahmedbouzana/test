@@ -1,0 +1,81 @@
+﻿@model TeleStock.Models.Produit
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Produit</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.codeProduit)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.codeProduit)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.refProduit)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.refProduit)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.desProduit)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.desProduit)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.prixVenteHtProduit)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.prixVenteHtProduit)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.prixAchatHtProduit)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.prixAchatHtProduit)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.tvaProduit)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.tvaProduit)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.qteEnStockProduit)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.qteEnStockProduit)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.qteRuptureProduit)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.qteRuptureProduit)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.qteSurStockProduit)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.qteSurStockProduit)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.remarqueProduit)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.remarqueProduit)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="produitID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
